@@ -17,6 +17,10 @@ struct ContentView: View {
     @State private var round = 1
     @State private var gameFinished = false
     
+    // animation props
+    @State private var rotationDegrees: [Double] = Array(repeating: 0.0, count: 3)
+    @State private var opacities: [Double] = Array(repeating: 1.0, count: 3)
+    
     var body: some View {
         ZStack {
             LinearGradient(colors: [.purple, .blue, .black], startPoint: .topLeading, endPoint: .bottomTrailing)
@@ -33,6 +37,9 @@ struct ContentView: View {
                 
                 ForEach(0..<3) { number in
                     FlagImage(flagName: countries[number], number: number, flagTapped: flagTapped)
+                        .rotation3DEffect(Angle(degrees: rotationDegrees[number]), axis: (0, 1, 0))
+                        .opacity(opacities[number])
+                    
                 }
             }
         }
@@ -52,7 +59,24 @@ struct ContentView: View {
         }
     }
     
+    func showAnimation(tappedFlag: Int) {
+        for i in 0...2 {
+            if tappedFlag == i {
+                withAnimation(.easeIn(duration: 1)) {
+                    rotationDegrees[i] += 360
+                }
+            }
+            else {
+                withAnimation {
+                    opacities[i] = 0.25
+                }
+            }
+        }
+    }
+    
     func flagTapped(_ number: Int) {
+        
+        showAnimation(tappedFlag: number)
         if number == correctAnswer {
             scoreTitle = "Correct"
             score += 1
@@ -64,7 +88,9 @@ struct ContentView: View {
         }
         
         round += 1
-        showingScoreAlert = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            showingScoreAlert = true
+        }
     }
     
     func retry() {
@@ -83,6 +109,12 @@ struct ContentView: View {
             
             correctAnswer = Int.random(in: 0...2)
         }
+        
+        resetAnimation()
+    }
+    
+    func resetAnimation() {
+        opacities = Array(repeating: 1.0, count: 3)
     }
 }
 
