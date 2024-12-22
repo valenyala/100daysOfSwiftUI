@@ -14,7 +14,7 @@ struct AddView: View {
     @State private var type = "Personal"
     @State private var amount = 0.0
     
-    let types = ["Business", "Personal"]
+    let types = ["Enterprise", "Personal"]
     var body: some View {
         NavigationStack {
             Form {
@@ -26,14 +26,19 @@ struct AddView: View {
                     }
                 }
                 
-                TextField("Amount", value: $amount, format: .currency(code: "usd"))
+                TextField("Amount", value: $amount, format: .currency(code: Locale.current.currency?.identifier ?? "usd"))
                     .keyboardType(.decimalPad)
             }
             .navigationTitle("Add new Expense")
             .toolbar {
                 Button("Save") {
                     let item = ExpenseItem(name: name, type: type, amount: amount)
-                    expenses.items.append(item)
+                    if type == "Personal" {
+                        expenses.personalItems.append(item)
+                    }
+                    else if type == "Enterprise" {
+                        expenses.enterpriseItems.append(item)
+                    }
                     dismiss()
                 }
             }

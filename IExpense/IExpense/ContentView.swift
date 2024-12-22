@@ -14,22 +14,8 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack {
-            List {
-                ForEach(expenses.items) { item in
-                    HStack {
-                            VStack(alignment: .leading) {
-                                Text(item.name)
-                                    .font(.headline)
-                                Text(item.type)
-                            }
-
-                            Spacer()
-                            Text(item.amount, format: .currency(code: "USD"))
-                        }
-                }
-                .onDelete(perform: removeExpenses)
-            }
-            .navigationTitle("iExpense")
+            ListView(expenses: expenses)
+            .navigationTitle("IExpense")
             .toolbar {
                 Button("Add Expense", systemImage: "plus") {
                     showingAddExpense = true
@@ -41,9 +27,7 @@ struct ContentView: View {
         }
     }
     
-    func removeExpenses(at offsets: IndexSet) {
-        expenses.items.remove(atOffsets: offsets)
-    }
+    
 }
 
 #Preview {
