@@ -33,10 +33,18 @@ struct MissionView: View {
                     }
                     .padding(.top)
                 
+                
                 VStack(alignment: .leading) {
-                    Text("Mission Highlights")
-                        .font(.title.bold())
-                        .padding(.bottom, 5)
+                    HStack {
+                        Spacer()
+                        VStack(spacing: 10) {
+                            Text(mission.formattedlaunchDate)
+                            Text("Mission Highlights")
+                                .font(.title.bold())
+                                .padding(.bottom, 5)
+                        }
+                        Spacer()
+                    }
                     
                     Rectangle()
                         .frame(height: 2)
@@ -49,44 +57,23 @@ struct MissionView: View {
                         .frame(height: 2)
                         .foregroundStyle(.lightBackground)
                         .padding(.vertical)
-                    Text("Crew")
-                        .font(.title.bold())
-                        .padding(.bottom, 5)
-                }
-                .padding(.horizontal)
-                ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
-                        ForEach(crew, id: \.role) { crewMember in
-                            NavigationLink {
-                                AstronautView(astronaut: crewMember.astronaut)
-                            } label: {
-                                HStack {
-                                    Image(crewMember.astronaut.id)
-                                        .resizable()
-                                        .frame(width: 104, height: 72)
-                                        .clipShape(.capsule)
-                                        .overlay(
-                                            Capsule()
-                                                .strokeBorder(.white, lineWidth: 1)
-                                        )
-                                    VStack(alignment: .leading) {
-                                        Text(crewMember.astronaut.name)
-                                            .foregroundStyle(.white)
-                                            .font(.headline)
-                                        Text(crewMember.role)
-                                            .foregroundStyle(.white.opacity(0.5))
-                                    }
-                                }
-                                .padding(.horizontal)
-                            }
-                        }
+                        Spacer()
+                        Text("Crew")
+                            .font(.title.bold())
+                            .padding(.bottom, 5)
+                        Spacer()
                     }
                 }
+                .padding(.horizontal)
+                
+                MissionCrewView(crew: crew)
             }
             .navigationTitle(mission.displayName)
             .navigationBarTitleDisplayMode(.inline)
-            .background(.darkBackground)
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(.darkBackground)
     }
     
     struct CrewMember {
@@ -98,6 +85,6 @@ struct MissionView: View {
 #Preview {
     let missions: [Mission] = Bundle.main.decode("missions.json")
     let astronauts: [String: Astronaut] = Bundle.main.decode("astronauts.json")
-    MissionView(mission: missions[0], astronauts: astronauts)
+    MissionView(mission: missions[1], astronauts: astronauts)
         .preferredColorScheme(.dark)
 }

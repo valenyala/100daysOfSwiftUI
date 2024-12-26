@@ -11,48 +11,32 @@ struct ContentView: View {
     let astronauts: [String: Astronaut] = Bundle.main.decode("astronauts.json")
     let missions: [Mission] = Bundle.main.decode("missions.json")
     
-    let gridColumns = [GridItem(.adaptive(minimum: 150))]
+    @State private var showGridView = true
+    
     var body: some View {
-        NavigationStack {
-            ScrollView {
-                LazyVGrid(columns: gridColumns) {
-                    ForEach(missions) { mission in
-                        NavigationLink {
-                            MissionView(mission: mission, astronauts: astronauts)
-                        } label: {
-                            VStack {
-                                Image(mission.image)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 100, height: 100)
-                                
-                                VStack {
-                                    Text(mission.displayName)
-                                        .font(.headline)
-                                        .foregroundStyle(.white)
-                                    Text(mission.formattedlaunchDate)
-                                        .font(.headline)
-                                        .foregroundStyle(.white.opacity(0.5))
-                                }
-                                .padding(.vertical)
-                                .frame(maxWidth: .infinity)
-                                .background(.lightBackground)
-                            }
-                            .clipShape(.rect(cornerRadius: 10))
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(.lightBackground)
-                            )
-                            .padding()
-                        }
+        ZStack {
+            NavigationStack {
+                Group {
+                    if showGridView {
+                        MissionGridView(missions: missions, astronauts: astronauts)
+                    }
+                    else {
+                        MissionsListView(missions: missions, astronauts: astronauts)
                     }
                 }
-                .padding([.horizontal, .bottom])
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(.darkBackground)
+                .preferredColorScheme(.dark)
+                .navigationTitle("Moonshot")
+                .toolbar {
+                    Button(showGridView ? "List view" : "Grid view") {
+                        showGridView.toggle()
+                    }
+                }
             }
-            .navigationTitle("Moonshot")
-            .background(.darkBackground)
-            .preferredColorScheme(.dark)
         }
+        .ignoresSafeArea()
+        .background(.darkBackground)
     }
 }
 
