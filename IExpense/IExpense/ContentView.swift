@@ -12,19 +12,21 @@ struct ContentView: View {
     
     @State private var showingAddExpense = false
     
+    @State private var path = NavigationPath()
+    
     var body: some View {
         NavigationStack {
             ListView(expenses: expenses)
             .navigationTitle("IExpense")
             .toolbar {
-                Button("Add Expense", systemImage: "plus") {
-                    showingAddExpense = true
+                NavigationLink(destination: AddView(expenses: expenses)) {
+                    Label("Add expense", systemImage: "plus")
                 }
             }
         }
-        .sheet(isPresented: $showingAddExpense) {
-            AddView(expenses: expenses)
-        }
+//        .sheet(isPresented: $showingAddExpense) {
+//            AddView(expenses: expenses)
+//        }
     }
     
     

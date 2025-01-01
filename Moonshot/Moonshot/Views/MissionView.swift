@@ -11,8 +11,9 @@ struct MissionView: View {
     let mission: Mission
     let crew: [CrewMember]
     
-    init(mission: Mission, astronauts: [String: Astronaut]) {
+    init(mission: Mission) {
         self.mission = mission
+        let astronauts: [String: Astronaut] = Bundle.main.decode("astronauts.json")
         self.crew = mission.crew.map { member in
             if let astronaut = astronauts[member.name] {
                 return CrewMember(role: member.role, astronaut: astronaut)
@@ -84,7 +85,6 @@ struct MissionView: View {
 
 #Preview {
     let missions: [Mission] = Bundle.main.decode("missions.json")
-    let astronauts: [String: Astronaut] = Bundle.main.decode("astronauts.json")
-    MissionView(mission: missions[1], astronauts: astronauts)
+    MissionView(mission: missions[1])
         .preferredColorScheme(.dark)
 }

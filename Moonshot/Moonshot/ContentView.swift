@@ -13,15 +13,17 @@ struct ContentView: View {
     
     @State private var showGridView = true
     
+    @State private var navigationPath = NavigationPath()
+    
     var body: some View {
         ZStack {
-            NavigationStack {
+            NavigationStack(path: $navigationPath) {
                 Group {
                     if showGridView {
-                        MissionGridView(missions: missions, astronauts: astronauts)
+                        MissionGridView(missions: missions)
                     }
                     else {
-                        MissionsListView(missions: missions, astronauts: astronauts)
+                        MissionsListView(missions: missions)
                     }
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)

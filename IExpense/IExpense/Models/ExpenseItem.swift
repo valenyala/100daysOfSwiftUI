@@ -40,6 +40,7 @@ class Expenses {
             }
         }
     }
+    
 }
 
 struct ExpenseItem: Identifiable, Codable {

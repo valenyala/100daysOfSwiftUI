@@ -9,14 +9,13 @@ import SwiftUI
 
 struct MissionsListView: View {
     let missions: [Mission]
-    let astronauts: [String: Astronaut]
     
     var body: some View {
         ScrollView {
             LazyVStack {
                 ForEach(missions) { mission in
                     NavigationLink {
-                        MissionView(mission: mission, astronauts: astronauts)
+                        MissionView(mission: mission)
                     } label: {
                         HStack {
                             Image(mission.image)
@@ -34,7 +33,6 @@ struct MissionsListView: View {
                                         .foregroundStyle(.white.opacity(0.5))
                                     Spacer()
                                 }
-                                .frame(height: .infinity)
                                 .padding(.leading, 10)
                                 Spacer()
                         }
@@ -54,8 +52,7 @@ struct MissionsListView: View {
 }
 
 #Preview {
-    let astronauts: [String: Astronaut] = Bundle.main.decode("astronauts.json")
     let missions: [Mission] = Bundle.main.decode("missions.json")
-    MissionsListView(missions: missions, astronauts: astronauts)
+    MissionsListView(missions: missions)
         .background(.darkBackground)
 }
