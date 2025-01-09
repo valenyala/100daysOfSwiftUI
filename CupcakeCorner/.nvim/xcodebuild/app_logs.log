@@ -1,0 +1,103 @@
+💉 InjectionIII connected /Users/valenyala/repos/100daysOfSwiftUI/CupcakeCorner/CupcakeCorner.xcodeproj
+💉 Watching files under the directory /Users/valenyala/repos
+💉 Compiling /Users/valenyala/repos/100daysOfSwiftUI/CupcakeCorner/CupcakeCorner/views/CheckoutView.swift
+💉 Loading .dylib ...
+💉 Interposed 2 function references.
+💉 Injected type #1 'CupcakeCorner.CheckoutView'
+💉 Compiling /Users/valenyala/repos/100daysOfSwiftUI/CupcakeCorner/CupcakeCorner/views/CheckoutView.swift
+💉 Compiling /Users/valenyala/repos/100daysOfSwiftUI/CupcakeCorner/CupcakeCorner/views/CheckoutView.swift
+💉 ⚠️ Re-compilation failed (see: /Users/valenyala/Library/Developer/CoreSimulator/Devices/4BCB48D2-C0CD-4178-88D9-C4CCADD8288B/data/Containers/Data/Application/F7CBCDC4-32F0-46D0-9F35-DE851B12AEF2/tmp/command.sh)
+/Users/valenyala/repos/100daysOfSwiftUI/CupcakeCorner/CupcakeCorner/views/CheckoutView.swift:20:21: error: cannot find 'placeOrer' in scope
+18 |                     .font(.title)
+19 |                 Button("Place Order") {
+20 |                     placeOrer()
+   |                     `- error: cannot find 'placeOrer' in scope
+21 |                 }
+22 |                 .padding()
+
+💉 ⚠️ Recompilation failing, are you renaming/adding files? Build your project to generate a new Xcode build log and try injecting again or relauch your app.
+💉 Compiling /Users/valenyala/repos/100daysOfSwiftUI/CupcakeCorner/CupcakeCorner/views/CheckoutView.swift
+💉 ⚠️ Re-compilation failed (see: /Users/valenyala/Library/Developer/CoreSimulator/Devices/4BCB48D2-C0CD-4178-88D9-C4CCADD8288B/data/Containers/Data/Application/F7CBCDC4-32F0-46D0-9F35-DE851B12AEF2/tmp/command.sh)
+/Users/valenyala/repos/100daysOfSwiftUI/CupcakeCorner/CupcakeCorner/views/CheckoutView.swift:20:21: error: 'async' call in a function that does not support concurrency
+18 |                     .font(.title)
+19 |                 Button("Place Order") {
+20 |                     placeOrder()
+   |                     `- error: 'async' call in a function that does not support concurrency
+21 |                 }
+22 |                 .padding()
+
+💉 Compiling /Users/valenyala/repos/100daysOfSwiftUI/CupcakeCorner/CupcakeCorner/views/CheckoutView.swift
+💉 ⚠️ Re-compilation failed (see: /Users/valenyala/Library/Developer/CoreSimulator/Devices/4BCB48D2-C0CD-4178-88D9-C4CCADD8288B/data/Containers/Data/Application/F7CBCDC4-32F0-46D0-9F35-DE851B12AEF2/tmp/command.sh)
+/Users/valenyala/repos/100daysOfSwiftUI/CupcakeCorner/CupcakeCorner/views/CheckoutView.swift:19:24: error: cannot convert value of type 'String' to expected argument type 'PrimitiveButtonStyleConfiguration'
+17 |                 Text("Your total is $\(order.cost, format: .currency(code: "USD"))")
+18 |                     .font(.title)
+19 |                 Button("Place Order") 
+   |                        `- error: cannot convert value of type 'String' to expected argument type 'PrimitiveButtonStyleConfiguration'
+20 |                 .padding()
+21 |             }
+
+💉 Compiling /Users/valenyala/repos/100daysOfSwiftUI/CupcakeCorner/CupcakeCorner/views/CheckoutView.swift
+💉 ⚠️ Re-compilation failed (see: /Users/valenyala/Library/Developer/CoreSimulator/Devices/4BCB48D2-C0CD-4178-88D9-C4CCADD8288B/data/Containers/Data/Application/F7CBCDC4-32F0-46D0-9F35-DE851B12AEF2/tmp/command.sh)
+/Users/valenyala/repos/100daysOfSwiftUI/CupcakeCorner/CupcakeCorner/views/CheckoutView.swift:19:47: error: cannot pass function of type '() async -> ()' to parameter expecting synchronous function type
+17 |                 Text("Your total is $\(order.cost, format: .currency(code: "USD"))")
+18 |                     .font(.title)
+19 |                 Button("Place Order", action: placeOrder) 
+   |                                               `- error: cannot pass function of type '() async -> ()' to parameter expecting synchronous function type
+20 |                 .padding()
+21 |             }
+
+💉 Compiling /Users/valenyala/repos/100daysOfSwiftUI/CupcakeCorner/CupcakeCorner/views/CheckoutView.swift
+💉 ⚠️ Re-compilation failed (see: /Users/valenyala/Library/Developer/CoreSimulator/Devices/4BCB48D2-C0CD-4178-88D9-C4CCADD8288B/data/Containers/Data/Application/F7CBCDC4-32F0-46D0-9F35-DE851B12AEF2/tmp/command.sh)
+/Users/valenyala/repos/100daysOfSwiftUI/CupcakeCorner/CupcakeCorner/views/CheckoutView.swift:19:24: error: cannot convert value of type 'String' to expected argument type 'PrimitiveButtonStyleConfiguration'
+17 |                 Text("Your total is $\(order.cost, format: .currency(code: "USD"))")
+18 |                     .font(.title)
+19 |                 Button("Place Order") 
+   |                        `- error: cannot convert value of type 'String' to expected argument type 'PrimitiveButtonStyleConfiguration'
+20 |                 .padding()
+21 |             }
+
+💉 Compiling /Users/valenyala/repos/100daysOfSwiftUI/CupcakeCorner/CupcakeCorner/views/CheckoutView.swift
+💉 Loading .dylib ...
+💉 Interposed 2 function references.
+💉 Injected type #1 'CupcakeCorner.CheckoutView'
+💉 Compiling /Users/valenyala/repos/100daysOfSwiftUI/CupcakeCorner/CupcakeCorner/views/CheckoutView.swift
+💉 Loading .dylib ...
+💉 Interposed 7 function references.
+💉 Injected type #1 'CupcakeCorner.CheckoutView'
+💉 Compiling /Users/valenyala/repos/100daysOfSwiftUI/CupcakeCorner/CupcakeCorner/views/CheckoutView.swift
+💉 Loading .dylib ...
+💉 Interposed 7 function references.
+💉 Injected type #1 'CupcakeCorner.CheckoutView'
+💉 Compiling /Users/valenyala/repos/100daysOfSwiftUI/CupcakeCorner/CupcakeCorner/views/CheckoutView.swift
+💉 Loading .dylib ...
+💉 Interposed 7 function references.
+💉 Injected type #1 'CupcakeCorner.CheckoutView'
+💉 Compiling /Users/valenyala/repos/100daysOfSwiftUI/CupcakeCorner/CupcakeCorner/views/CheckoutView.swift
+💉 Compiling /Users/valenyala/repos/100daysOfSwiftUI/CupcakeCorner/CupcakeCorner/views/CheckoutView.swift
+💉 ⚠️ Re-compilation failed (see: /Users/valenyala/Library/Developer/CoreSimulator/Devices/4BCB48D2-C0CD-4178-88D9-C4CCADD8288B/data/Containers/Data/Application/F7CBCDC4-32F0-46D0-9F35-DE851B12AEF2/tmp/command.sh)
+/Users/valenyala/repos/100daysOfSwiftUI/CupcakeCorner/CupcakeCorner/views/CheckoutView.swift:33:48: error: instance method 'encode' requires that 'Order' conform to 'Encodable'
+31 | 
+32 |     func placeOrder() async {
+33 |         guard let encoded = try? JSONEncoder().encode(order) else {
+   |                                                `- error: instance method 'encode' requires that 'Order' conform to 'Encodable'
+34 |             print("Failed to encode order")
+35 |             return
+
+Foundation.JSONEncoder:48:15: note: where 'T' = 'Order'
+46 |     open var userInfo: [CodingUserInfoKey : Any] { get set }
+47 |     public init()
+48 |     open func encode<T>(_ value: T) throws -> Data where T : Encodable
+   |               `- note: where 'T' = 'Order'
+49 |     @available(macO
+S 14, iOS 17, tvOS 17, watchOS 10, *)
+50 |     open func encode<T>(_ value: T, configuration: T.EncodingConfiguration) throws -> Data where T : EncodableWithConfiguration
+
+💉 ⚠️ Recompilation failing, are you renaming/adding files? Build your project to generate a new Xcode build log and try injecting again or relauch your app.
+💉 Compiling /Users/valenyala/repos/100daysOfSwiftUI/CupcakeCorner/CupcakeCorner/models/Order.swift
+💉 Loading .dylib ...
+objc[51223]: Class _TtC13CupcakeCorner5Order is implemented in both /Users/valenyala/Library/Developer/CoreSimulator/Devices/4BCB48D2-C0CD-4178-88D9-C4CCADD8288B/data/Containers/Bundle/Application/E0E67EB7-AD24-4034-9E23-C745719E9C86/CupcakeCorner.app/CupcakeCorner.debug.dylib (0x1002a4638) and /Users/valenyala/Library/Developer/CoreSimulator/Devices/4BCB48D2-C0CD-4178-88D9-C4CCADD8288B/data/Containers/Data/Application/F7CBCDC4-32F0-46D0-9F35-DE851B12AEF2/tmp/eval114.dylib (0x11846c4b0). One of the two will be used. Which one is undefined.
+💉 Loaded .dylib - Ignore any duplicate class warning ⬆️
+💉 ⚠️ Adding or [re]moving methods of non-final class Order[656],Order[672] is not supported. Your application will likely crash. Paradoxically, you can avoid this by making the class you are trying to inject (and add methods to) "final". ⚠️
+💉 Interposed 13 function references.
+💉 Injected type #1 'CupcakeCorner.Order'
+com.valenyang.CupcakeCorner: 51223

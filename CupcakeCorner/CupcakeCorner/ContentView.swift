@@ -9,8 +9,8 @@ import Inject
 import SwiftUI
 
 struct ContentView: View {
-    @ObserveInjection var inject
     @State private var order = Order()
+    @ObserveInjection var inject
     var body: some View {
         NavigationStack {
             Form {
