@@ -4,18 +4,8 @@ Inject - https://github.com/krzysztofzablocki/Inject.git @ 1.5.2
 [!]  --- xcodebuild: Using the first of multiple matching destinations:
 { platform:iOS Simulator, id:4BCB48D2-C0CD-4178-88D9-C4CCADD8288B, OS:18.1, name:iPhone 16 }
 { platform:iOS Simulator, id:4BCB48D2-C0CD-4178-88D9-C4CCADD8288B, OS:18.1, name:iPhone 16 }
-[CupcakeCorner] Compiling Order.swift
-[CupcakeCorner] Compiling CheckoutView.swift
-[CupcakeCorner] Compiling AddressView.swift
-[CupcakeCorner] Compiling CupcakeCornerApp.swift
-[CupcakeCorner] Compiling ContentView.swift
-[CupcakeCorner] Compiling a.swift
-[CupcakeCorner] Copy arm64-apple-ios-simulator.swiftmodule -> CupcakeCorner.swiftmodule
-[CupcakeCorner] Copy arm64-apple-ios-simulator.abi.json -> CupcakeCorner.abi.json
-[CupcakeCorner] Copy arm64-apple-ios-simulator.swiftsourceinfo -> CupcakeCorner.swiftsourceinfo
 [CupcakeCorner] Processing empty-CupcakeCorner.plist
 Signing CupcakeCorner.debug.dylib (in target 'CupcakeCorner' from project 'CupcakeCorner')
-Signing __preview.dylib (in target 'CupcakeCorner' from project 'CupcakeCorner')
 Signing CupcakeCorner.app (in target 'CupcakeCorner' from project 'CupcakeCorner')
 Build Succeeded
 

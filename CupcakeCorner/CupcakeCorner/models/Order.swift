@@ -2,6 +2,7 @@ import SwiftUI
 
 @Observable
 class Order: Codable {
+
     static let types = ["Vanilla", "Strawberry", "Chocolate", "Rainbow"]
 
     var type = 0
@@ -34,15 +35,6 @@ class Order: Codable {
         return cost
     }
 
-    var name = ""
-    var streetAddress = ""
-    var city = ""
-    var zip = ""
-
-    var hasValidAddress: Bool {
-        return !name.isEmpty && !streetAddress.isEmpty && !city.isEmpty && !zip.isEmpty
-    }
-
     enum CodingKeys: String, CodingKey {
         case _type = "type"
         case _quantity = "quantity"
@@ -53,5 +45,39 @@ class Order: Codable {
         case _streetAddress = "streetAddress"
         case _city = "city"
         case _zip = "zip"
+    }
+
+    var name = "" {
+        didSet {
+            UserDefaults.standard.set(name, forKey: "name")
+        }
+    }
+    var streetAddress = "" {
+        didSet {
+            UserDefaults.standard.set(streetAddress, forKey: "streetAddress")
+        }
+    }
+    var city = "" {
+        didSet {
+            UserDefaults.standard.set(city, forKey: "city")
+        }
+    }
+    var zip = "" {
+        didSet {
+            UserDefaults.standard.set(zip, forKey: "zip")
+        }
+    }
+    init() {
+        name = UserDefaults.standard.string(forKey: "name") ?? ""
+        streetAddress = UserDefaults.standard.string(forKey: "streetAddress") ?? ""
+        city = UserDefaults.standard.string(forKey: "city") ?? ""
+        zip = UserDefaults.standard.string(forKey: "zip") ?? ""
+    }
+
+    var hasValidAddress: Bool {
+        return !name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+            && !streetAddress.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+            && !city.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+            && !zip.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
     }
 }
