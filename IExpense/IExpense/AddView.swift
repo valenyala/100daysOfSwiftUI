@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct AddView: View {
+    @Environment(\.modelContext) var modelContext
     @Environment(\.dismiss) var dismiss
-    let expenses: Expenses
+    @Query var expenses: [ExpenseItem]
     @State private var name = "Expense name"
     @State private var type = "Personal"
     @State private var amount = 0.0
@@ -19,7 +21,6 @@ struct AddView: View {
         NavigationStack {
             VStack {
                 Form {
-                    //                TextField("Name", text: $name)
                     
                     Picker("Type", selection: $type) {
                         ForEach(types, id: \.self) {
@@ -33,10 +34,10 @@ struct AddView: View {
                         Button("Save") {
                             let item = ExpenseItem(name: name, type: type, amount: amount)
                             if type == "Personal" {
-                                expenses.personalItems.append(item)
+                                modelContext.insert(item)
                             }
                             else if type == "Enterprise" {
-                                expenses.enterpriseItems.append(item)
+                                modelContext.insert(item)
                             }
                             dismiss()
                         }
@@ -58,8 +59,5 @@ struct AddView: View {
 }
 
 #Preview {
-    let expenses = Expenses()
-    NavigationStack {
-        AddView(expenses: expenses)
-    }
+    
 }
