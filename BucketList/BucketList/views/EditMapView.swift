@@ -11,7 +11,7 @@ struct EditMapView: View {
     init(location: Location, onSave: @escaping (Location) -> Void) {
         self.onSave = onSave
 
-        self.viewModel = ViewModel(location: location)
+        self._viewModel = State(initialValue: ViewModel(location: location))
     }
 
     var body: some View {
