@@ -43,6 +43,8 @@ struct MissionsListView: View {
                         )
                         .padding(.horizontal)
                         .padding(.vertical, 5)
+                        .accessibilityElement()
+                        .accessibilityLabel("Mission \(mission.displayName)")
                     }
                 }
             }

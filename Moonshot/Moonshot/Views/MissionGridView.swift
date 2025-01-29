@@ -42,6 +42,8 @@ struct MissionGridView: View {
                                 .stroke(.lightBackground)
                         )
                         .padding()
+                        .accessibilityElement()
+                        .accessibilityLabel("Mission \(mission.displayName)")
                     }
                 }
             }
