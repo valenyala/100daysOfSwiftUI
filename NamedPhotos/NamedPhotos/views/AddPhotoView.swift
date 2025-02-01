@@ -4,12 +4,22 @@ import SwiftUI
 struct AddPhotoView: View {
     @Environment(\.dismiss) private var dismiss
 
-    let onSave: (Data, String) -> Void
+    let onSave: (Photo) -> Void
     @State private var pickerItem: PhotosPickerItem?
     @State private var imageToAddData: Data?
     @State private var imageToAdd: Image?
 
     @State private var name = ""
+
+    let locationFetcher = LocationFetcher()
+
+    init(onSave: @escaping (Photo) -> Void) {
+        self.onSave = onSave
+        locationFetcher.start()
+    }
+
+    @State private var showNoLocationAlert = false
+    @State private var noLocationAlertTitle = "We can't get your location, please try again."
 
     var body: some View {
         VStack {
@@ -45,10 +55,20 @@ struct AddPhotoView: View {
             if imageToAdd != nil {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Save") {
-                        onSave(imageToAddData!, name)
+                        guard let location = locationFetcher.lastKnownLocation else {
+                            showNoLocationAlert = true
+                            return
+                        }
+                        let photo = Photo(data: imageToAddData!, name: name, location: location)
+                        onSave(photo)
                         dismiss()
                     }
                     .disabled(name.isEmpty || imageToAdd == nil)
+                    .alert(noLocationAlertTitle, isPresented: $showNoLocationAlert) {
+                        Button("Cancel", role: .cancel) {
+
+                        }
+                    }
                 }
             }
             ToolbarItem(placement: .principal) {
@@ -78,7 +98,7 @@ struct AddPhotoView: View {
 
 #Preview {
     NavigationStack {
-        AddPhotoView { data, name in
+        AddPhotoView { photo in
 
         }
     }

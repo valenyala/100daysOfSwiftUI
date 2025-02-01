@@ -9,12 +9,16 @@
 /* Begin PBXBuildFile section */
 		35A083D3E86F905DD25BEBDE /* AddPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596F2E5641038D9BDF43050F /* AddPhotoView.swift */; };
 		724579A208DF2A1B182686C0 /* PhotoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2219AAA70A98CC186DC1B094 /* PhotoDetailView.swift */; };
+		9884AC9D80E8C06366FA5311 /* LocationFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A13D09541508632D0D4CC1C /* LocationFetcher.swift */; };
+		E2ED4747DC23135F59C46BAC /* PhotoAddedLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AF1ABAE2B863B0EC7E0C3D /* PhotoAddedLocationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A13D09541508632D0D4CC1C /* LocationFetcher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LocationFetcher.swift; sourceTree = "<group>"; };
 		2219AAA70A98CC186DC1B094 /* PhotoDetailView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PhotoDetailView.swift; sourceTree = "<group>"; };
 		596F2E5641038D9BDF43050F /* AddPhotoView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddPhotoView.swift; sourceTree = "<group>"; };
 		836DF3372D4B04E300B7F90A /* NamedPhotos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NamedPhotos.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9AF1ABAE2B863B0EC7E0C3D /* PhotoAddedLocationView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PhotoAddedLocationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -43,8 +47,17 @@
 			children = (
 				596F2E5641038D9BDF43050F /* AddPhotoView.swift */,
 				2219AAA70A98CC186DC1B094 /* PhotoDetailView.swift */,
+				D9AF1ABAE2B863B0EC7E0C3D /* PhotoAddedLocationView.swift */,
 			);
 			path = views;
+			sourceTree = "<group>";
+		};
+		7AD8BA47FEF089E95CEF2B59 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				0A13D09541508632D0D4CC1C /* LocationFetcher.swift */,
+			);
+			path = utils;
 			sourceTree = "<group>";
 		};
 		836DF32E2D4B04E300B7F90A = {
@@ -68,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				1EE1CF51A3A999B753CDCABF /* views */,
+				7AD8BA47FEF089E95CEF2B59 /* utils */,
 			);
 			path = NamedPhotos;
 			sourceTree = "<group>";
@@ -146,6 +160,8 @@
 			files = (
 				35A083D3E86F905DD25BEBDE /* AddPhotoView.swift in Sources */,
 				724579A208DF2A1B182686C0 /* PhotoDetailView.swift in Sources */,
+				9884AC9D80E8C06366FA5311 /* LocationFetcher.swift in Sources */,
+				E2ED4747DC23135F59C46BAC /* PhotoAddedLocationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +297,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"NamedPhotos/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need to save the location where you saved the photo";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -309,6 +326,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"NamedPhotos/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need to save the location where you saved the photo";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

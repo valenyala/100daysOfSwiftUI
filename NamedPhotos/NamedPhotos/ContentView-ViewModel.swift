@@ -16,8 +16,7 @@ extension ContentView {
             }
         }
 
-        func addPhoto(data imageData: Data, name: String) {
-            let photo = Photo(data: imageData, name: name)
+        func addPhoto(photo: Photo) {
             photos.append(photo)
             photos.sort()
 
