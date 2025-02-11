@@ -11,20 +11,23 @@ struct ContentView: View {
     @State private var selectedTab = "One"
 
     var body: some View {
-        TabView(selection: $selectedTab) {
-            Button("Show Tab 2") {
-                selectedTab = "Two"
-            }
-            .tabItem {
-                Label("One", systemImage: "star")
-            }
-            .tag("One")
-
-            Text("Tab 2")
+        TabView {
+            ProspectsView(filter: .none)
                 .tabItem {
-                    Label("Two", systemImage: "circle")
+                    Label("Everyone", systemImage: "person.3")
                 }
-                .tag("Two")
+            ProspectsView(filter: .contacted)
+            .tabItem {
+                Label("Contacted", systemImage: "checkmark.circle")
+            }
+            ProspectsView(filter: .uncontacted)
+            .tabItem {
+                Label("Uncontacted", systemImage: "questionmark.diamond")
+            }
+            AboutMeView()
+            .tabItem {
+                Label("Me", systemImage: "person")
+            }
         }
     }
 }
